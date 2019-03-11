@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8E90BD36-F581-43F4-B96A-D0BCF7E75378}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WindowsFormsApp2</RootNamespace>
+    <AssemblyName>WindowsFormsApp2</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enums\WeightTypes.cs" />
+    <Compile Include="Model\Cenniki.cs">
+      <DependentUpon>Promotions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Ceny.cs">
+      <DependentUpon>Prices.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PriceModel.cs" />
+    <Compile Include="Model\Prices.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Prices.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Prices.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Prices.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Price.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Price.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Product.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Product.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Product.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Product.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Product.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Product.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Promotions.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Promotions.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Promotions.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Promotions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Promotion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Promotion.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Towary.cs">
+      <DependentUpon>Product.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presenter\IPresenter.cs" />
+    <Compile Include="Presenter\Presenter.cs" />
+    <Compile Include="Presenter\PricePresenter.cs" />
+    <Compile Include="Presenter\ProductPresenter.cs" />
+    <Compile Include="Presenter\PromoPresenter.cs" />
+    <Compile Include="PriceEventArgs.cs" />
+    <Compile Include="Service\ExportCSV.cs" />
+    <Compile Include="Service\PriceValidation.cs" />
+    <Compile Include="Service\ProductValidation.cs" />
+    <Compile Include="View\IPriceUC.cs" />
+    <Compile Include="View\IPromoUC.cs" />
+    <Compile Include="View\IView.cs" />
+    <Compile Include="View\IProductUC.cs" />
+    <Compile Include="View\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\PriceTabUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\PriceTabUC.Designer.cs">
+      <DependentUpon>PriceTabUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProductTabUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ProductTabUC.Designer.cs">
+      <DependentUpon>ProductTabUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PromoTabUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\PromoTabUC.Designer.cs">
+      <DependentUpon>PromoTabUC.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="View\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PriceTabUC.resx">
+      <DependentUpon>PriceTabUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ProductTabUC.resx">
+      <DependentUpon>ProductTabUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PromoTabUC.resx">
+      <DependentUpon>PromoTabUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\Promotion.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Promotion.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Model\Price.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Price.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\Price.edmx.diagram">
+      <DependentUpon>Price.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Model\Product.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Product.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\Product.edmx.diagram">
+      <DependentUpon>Product.edmx</DependentUpon>
+    </None>
+    <None Include="Model\Promotion.edmx.diagram">
+      <DependentUpon>Promotion.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\Prices.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Price.edmx</DependentUpon>
+      <LastGenOutput>Prices.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Prices.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Price.edmx</DependentUpon>
+      <LastGenOutput>Prices.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Product.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Product.edmx</DependentUpon>
+      <LastGenOutput>Product.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Product.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Product.edmx</DependentUpon>
+      <LastGenOutput>Product.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Promotions.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Promotion.edmx</DependentUpon>
+      <LastGenOutput>Promotions.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Promotions.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Promotion.edmx</DependentUpon>
+      <LastGenOutput>Promotions.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
